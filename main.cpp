@@ -1,6 +1,7 @@
 #include<iostream>
 #include<limits>
 #include "network_tools.hpp"
+#include "permissions.hpp"
 #include "user_group.hpp"
 //Will add the remaining header files as soon as i get the functions 
 using namespace std;
@@ -34,7 +35,7 @@ void menu(int &p){
         break;
     
     case 5:
-        // Call of the given functions as soon as the members gives them        
+        permissionMenu();       
         break;
     
     case 6:
