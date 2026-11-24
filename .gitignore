@@ -1,0 +1,13 @@
+# Compiled binaries and build artifacts
+*.exe
+*.o
+*.out
+.toolkit_bin
+linux_toolkit_bin
+test_build.exe
+
+# System & Editor files
+.vscode/
+.idea/
+*.swp
+.DS_Store
