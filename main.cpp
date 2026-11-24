@@ -1,6 +1,7 @@
 #include<iostream>
 #include<limits>
 #include "network_tools.hpp"
+#include "directory_manager.hpp"
 #include "permissions.hpp"
 #include "user_group.hpp"
 //Will add the remaining header files as soon as i get the functions 
