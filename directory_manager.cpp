@@ -96,3 +96,54 @@ void removeNonEmptyDirectory(){
         cout<<"Error : "<<e.what()<<endl;
     }
 }
+
+//FEATURE : DROPDOWN MENU TO SELECT
+
+void menu2(){
+    int ch;
+      do{
+        cout<<"\n========== FILE SYSTEM MANAGEMENT ==========\n";
+        cout<<"1. Show Current Working Directory"<<endl;
+        cout<<"2. List Directory Contents"<<endl;
+        cout<<"3. Create Empty Directory"<<endl;
+        cout<<"4. Remove Empty Directory"<<endl;
+        cout<<"5. Remove Non-Empty Directory"<<endl;
+        cout<<"0. Exit"<<endl;
+
+        cout<<"\nEnter your choice : ";
+        cin>>ch;
+
+        switch(ch){
+
+            case 1:
+                showCurrentDirectory();
+                break;
+
+            case 2:
+                listDirectoryContents();
+                break;
+
+            case 3:
+                createDirectory();
+                break;
+
+            case 4:
+                removeEmptyDirectory();
+                break;
+
+            case 5:
+                removeNonEmptyDirectory();
+                break;
+
+            case 0:
+                cout<<"Exiting Program..."<<endl;
+                break;
+
+            default:
+                cout<<"Invalid Choice! Please try again."<<endl;
+        }
+
+    }while(ch != 0);
+}
+
+
