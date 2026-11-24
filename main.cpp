@@ -5,6 +5,7 @@
 #include "directory_manager.hpp"
 #include "permissions.hpp"
 #include "user_group.hpp"
+#include "archive_manager.hpp"
 
 using namespace std;
 void menu(int &p){
@@ -29,7 +30,7 @@ void menu(int &p){
         break;
     
     case 3:
-        // Call of the given functions as soon as the members gives them        
+        archiveMenu();        
         break;
     
     case 4:

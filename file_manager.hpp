@@ -5,5 +5,7 @@ void createFile();
 void copyFile();
 void moveFile();
 void listFiles();
+void fileManagementMenu();
+inline void FileManagementMenu() { fileManagementMenu(); }
 
 #endif

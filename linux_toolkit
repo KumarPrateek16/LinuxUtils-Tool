@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# ==============================================================================
+# Linux Utility Toolkit - One-Click Launcher
+# Compiles the toolkit (if needed) and opens the main interactive menu.
+# ==============================================================================
+
+APP_BIN="./.toolkit_bin"
+
+# 1. Check if g++ is installed
+if ! command -v g++ &> /dev/null; then
+    echo "=========================================================="
+    echo " Error: 'g++' compiler not found!"
+    echo " Please install the required prerequisites:"
+    echo "   sudo apt update && sudo apt install -y build-essential"
+    echo "=========================================================="
+    exit 1
+fi
+
+# 2. Check if re-compilation is necessary
+RECOMPILE=0
+if [ ! -f "$APP_BIN" ]; then
+    RECOMPILE=1
+else
+    # Check if any .cpp or .hpp file was modified after the binary
+    for src in *.cpp *.hpp; do
+        if [ "$src" -nt "$APP_BIN" ]; then
+            RECOMPILE=1
+            break
+        fi
+    done
+fi
+
+# 3. Compile if necessary
+if [ $RECOMPILE -eq 1 ]; then
+    echo "=========================================================="
+    echo " [*] Compiling Linux Utility Toolkit..."
+    echo "=========================================================="
+    g++ -std=c++17 \
+        main.cpp \
+        file_manager.cpp \
+        directory_manager.cpp \
+        archive_manager.cpp \
+        user_group.cpp \
+        permissions.cpp \
+        network_tools.cpp \
+        -o "$APP_BIN"
+
+    if [ $? -ne 0 ]; then
+        echo "=========================================================="
+        echo " [!] Compilation failed. Please fix the errors above."
+        echo "=========================================================="
+        exit 1
+    fi
+    chmod +x "$APP_BIN"
+    echo " [+] Compilation successful!"
+    echo ""
+fi
+
+# 4. Launch the Toolkit
+exec "$APP_BIN"
