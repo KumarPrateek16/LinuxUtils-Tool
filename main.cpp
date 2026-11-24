@@ -1,5 +1,6 @@
 #include<iostream>
 #include<limits>
+#include "file_manager.hpp"
 #include "network_tools.hpp"
 #include "directory_manager.hpp"
 #include "permissions.hpp"
@@ -20,7 +21,7 @@ void menu(int &p){
     cin>>x;
     switch (x){
     case 1:
-        // Call of the given functions as soon as the members gives them        
+        FileManagementMenu();      
         break;
     
     case 2:
