@@ -41,13 +41,14 @@ The application is divided into the following modules:
 6. **Network Diagnostics**
    - Check network connectivity
    - Display hostname
+   - Test internet speed (speedtest-cli)
 
 ## Technologies Used
 
 - **Programming Language:** C++
 - **Operating System:** Linux
 - **Compiler:** GCC (g++)
-- **Linux Commands:** mkdir, ls, pwd, cp, mv, zip, unzip, tar, id, groups, chmod, ping, hostname
+- **Linux Commands:** mkdir, ls, pwd, cp, mv, zip, unzip, tar, id, groups, chmod, ping, hostname, speedtest-cli
 
 ## Project Structure
 
@@ -79,7 +80,7 @@ Linux-Utility-Toolkit/
 
 - A Linux-based operating system
 - GCC C++ compiler
-- Required Linux utilities (such as zip and unzip)
+- Required Linux utilities (such as zip, unzip, speedtest-cli)
 
 ## Compilation and Execution
 

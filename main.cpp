@@ -1,5 +1,6 @@
 #include<iostream>
 #include<limits>
+#include "network_tools.hpp"
 //Will add the remaining header files as soon as i get the functions 
 using namespace std;
 void menu(int &p){
@@ -36,7 +37,7 @@ void menu(int &p){
         break;
     
     case 6:
-        // Call of the given functions as soon as the members gives them        
+        networkMenu();        
         break;
     
     case 7:
