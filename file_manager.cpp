@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
+#include <limits>
 static std::string quoteArg(const std::string& s) {
     std::string out = "\"";
     for (char c : s) {
@@ -77,5 +77,46 @@ void listFiles() {
     std::string cmd = "ls -la " + quoteArg(path);
     if (std::system(cmd.c_str()) != 0) {
         std::cout << "Failed to list files.\n";
+    }
+}
+void fileManagementMenu() {
+    while (true) {
+        std::cout << "\n--- File Management Menu ---\n"
+                  << "1. Create File\n"
+                  << "2. Copy File\n"
+                  << "3. Move File\n"
+                  << "4. List Files\n"
+                  << "0. Back / Exit\n"
+                  << "Enter your choice: ";
+
+        int choice = -1;
+        if (!(std::cin >> choice)) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter a number.\n";
+            continue;
+        }
+        // Clear the trailing newline so std::getline inside your functions works properly
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        switch (choice) {
+            case 1:
+                createFile();
+                break;
+            case 2:
+                copyFile();
+                break;
+            case 3:
+                moveFile();
+                break;
+            case 4:
+                listFiles();
+                break;
+            case 0:
+                return;
+            default:
+                std::cout << "Invalid choice. Try again.\n";
+                break;
+        }
     }
 }
