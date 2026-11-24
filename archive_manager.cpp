@@ -2,12 +2,20 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <limits>
 
 using namespace std;
 
 // Function to call system commands
 static void getsystem(const string& cmd) {
     system(cmd.c_str());
+}
+
+// Helper function to pause and wait for Enter
+static void pauseEnter() {
+    cout << "\nPress Enter to continue...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
 }
 
 // 1. Create a ZIP archive
@@ -95,7 +103,7 @@ void archiveMenu() {
 
         if (cin.fail()) {
             cin.clear();
-            cin.ignore(10000, '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Please enter a valid number.\n";
             continue;
         }
@@ -103,18 +111,23 @@ void archiveMenu() {
         switch (choice) {
             case 1:
                 createZip();
+                pauseEnter();
                 break;
             case 2:
                 extractZip();
+                pauseEnter();
                 break;
             case 3:
                 createTar();
+                pauseEnter();
                 break;
             case 4:
                 extractTar();
+                pauseEnter();
                 break;
             case 5:
                 viewArchive();
+                pauseEnter();
                 break;
             case 0:
             case 6:

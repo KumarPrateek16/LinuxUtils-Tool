@@ -1,8 +1,15 @@
 #include<iostream>
 #include<filesystem>
+#include<limits>
 #include "directory_manager.hpp"
 using namespace std;
 namespace fs = filesystem;
+
+static void pauseEnter() {
+    cout << "\nPress Enter to continue...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+}
 
 //Feature 1 : SHOW CURRENT WORKING DIRECTORY
 
@@ -118,22 +125,27 @@ void menu2(){
 
             case 1:
                 showCurrentDirectory();
+                pauseEnter();
                 break;
 
             case 2:
                 listDirectoryContents();
+                pauseEnter();
                 break;
 
             case 3:
                 createDirectory();
+                pauseEnter();
                 break;
 
             case 4:
                 removeEmptyDirectory();
+                pauseEnter();
                 break;
 
             case 5:
                 removeNonEmptyDirectory();
+                pauseEnter();
                 break;
 
             case 0:
@@ -146,5 +158,3 @@ void menu2(){
 
     }while(ch != 0);
 }
-
-

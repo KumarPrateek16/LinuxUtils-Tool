@@ -99,6 +99,12 @@ void permissionMenu() {
                 break;
             default:
                 cout << "Invalid choice.\n";
+                break;
+        }
+
+        if (choice >= 1 && choice <= 3) {
+            cout << "\nPress Enter to continue...";
+            cin.get();
         }
     }
 }

@@ -2,12 +2,19 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <limits>
 
 using namespace std;
 
 // funct to call sys cmds
 void getsystem(string cmd) {
     system(cmd.c_str());
+}
+
+static void pauseEnter() {
+    cout << "\nPress Enter to continue...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
 }
 
 // 1. network connectivity check
@@ -48,12 +55,15 @@ void networkMenu() {
         switch (choice) {
             case 1:
                 checkConnectivity();
+                pauseEnter();
                 break;
             case 2:
                 displayHostname();
+                pauseEnter();
                 break;
             case 3:
                 checkSpeed();
+                pauseEnter();
                 break;
             case 4:
                 cout << "Returning to Main Menu...\n";

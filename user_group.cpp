@@ -1,6 +1,7 @@
 #include "user_group.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <limits>
 using namespace std;
 
 void muhehehehe() {
@@ -15,17 +16,24 @@ void muhehehehe() {
              << "Enter choice: ";
         cin >> choice;
         if (cin.fail()) {
-    cin.clear();
-    cin.ignore(10000, '\n');
-    cout << "Please enter a number.\n";
-    continue;
-}
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Please enter a number.\n";
+            continue;
+        }
 
-        if (choice == 1) system("id -u");
-        else if (choice == 2) system("id -g");
-        else if (choice == 3) system("groups");
-        else if (choice == 4) system("whoami");
+        if (choice == 1) { system("id -u"); }
+        else if (choice == 2) { system("id -g"); }
+        else if (choice == 3) { system("groups"); }
+        else if (choice == 4) { system("whoami"); }
         else if (choice == 0) return;
-        else cout << "Invalid choice.\n";
+        else {
+            cout << "Invalid choice.\n";
+            continue;
+        }
+
+        cout << "\nPress Enter to continue...";
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.get();
     }
 }

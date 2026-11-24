@@ -118,5 +118,10 @@ void fileManagementMenu() {
                 std::cout << "Invalid choice. Try again.\n";
                 break;
         }
+
+        if (choice >= 1 && choice <= 4) {
+            std::cout << "\nPress Enter to continue...";
+            std::cin.get();
+        }
     }
 }
